@@ -1,6 +1,6 @@
 # Wedit Makefile for project a3q1
 SRCDIR=c:\users\jonti\documents\github\comp206a3
-CFLAGS=-I"C:\lcc\include"  -g2 
+CFLAGS=-I"c:\lcc\include" -I"C:\lcc\include"  -g2 
 CC=$(LCCROOT)\bin\lcc.exe
 LINKER=$(LCCROOT)\bin\lcclnk.exe
 OBJS=\
@@ -14,10 +14,6 @@ $(EXE):	$(OBJS) Makefile
 
 # Build a3q1.c
 A3Q1_C=\
-	c:\lcc\include\_syslist.h\
-	c:\lcc\include\_syslist.h\
-	c:\lcc\include\safelib.h\
-	c:\lcc\include\safelib.h\
 
 a3q1.obj: $(A3Q1_C) $(SRCDIR)\a3q1.c
 	$(CC) -c $(CFLAGS) $(SRCDIR)\a3q1.c
