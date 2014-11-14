@@ -1,0 +1,5 @@
+; Wedit project file. Syntax: Name = value
+[a3q1]
+PrjFiles=1
+File1=a3q1.c
+ProjectFlags=0
