@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
    			 	value = value + atof(token);
     			token = strtok(NULL, ",");
 
-			}			printf("%s, %.2f, %.2f, %.2f \n", name, value, count, value/count);
+			}			printf("%s, %.2f \n", name, value/count);
 	}
 
 	fclose(file_ptr);
