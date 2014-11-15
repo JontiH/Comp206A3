@@ -7,11 +7,21 @@ int main(int argc, char *argv[])
 {
 	FILE *file_ptr;
 	char *token;
-	int value;
-	int count;
-	char line[1024];
+	float value;
+	float count;
+	int size;
+
+	char name[1024]; //arbitrarily large
 
 	file_ptr = fopen(argv[1], "r");
+
+	fseek(file_ptr, 0L, SEEK_END);
+	size = ftell(file_ptr);
+	fseek(file_ptr, 0L, SEEK_SET);
+
+	char line[size];
+
+
 
 
 	if (file_ptr == NULL)
@@ -23,18 +33,24 @@ int main(int argc, char *argv[])
 
 	while(!feof(file_ptr))
 	{
-			count = 0;
+			count = -1;
 			value = 0;
 			fgets(line,299,file_ptr);
 			token = strtok(line,",");
 			while (token != NULL)
   			{
-   			 	value = value + atoi(token);
+				if(count == -1)
+					{
+						strcpy(name,token);
+						token = strtok(NULL, ",");
+						count++;
+					}
+				//printf("yo --> %s", token);
 				count++;
+   			 	value = value + atof(token);
     			token = strtok(NULL, ",");
-  			}
-			printf("%i", value/count);
 
+			}			printf("%s, %.2f, %.2f, %.2f \n", name, value, count, value/count);
 	}
 
 	fclose(file_ptr);
